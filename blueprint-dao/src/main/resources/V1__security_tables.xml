@@ -1,0 +1,87 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?><databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.0.xsd">
+    <changeSet author="Socheat KHAUV" id="V1__security_tables-1">
+        <createTable tableName="tbl_user">
+            <column autoIncrement="true" name="user_id" type="BIGINT">
+                <constraints notNullConstraintName="notnull_key_1" nullable="false" primaryKey="true" primaryKeyName="primary_key_1"/>
+            </column>
+            <column name="enabled" type="TINYINT(1)">
+                <constraints notNullConstraintName="notnull_key_2" nullable="false" unique="false" uniqueConstraintName="unique_index_1"/>
+            </column>
+            <column name="name" type="VARCHAR(100)"/>
+            <column name="login" type="VARCHAR(100)">
+                <constraints notNullConstraintName="notnull_key_3" nullable="false" unique="true" uniqueConstraintName="unique_index_2"/>
+            </column>
+            <column name="pwd" type="VARCHAR(100)"/>
+            <column name="system_defined" type="TINYINT(1)">
+                <constraints notNullConstraintName="notnull_key_4" nullable="false" unique="false" uniqueConstraintName="unique_index_3"/>
+            </column>
+            <column name="description" type="VARCHAR(255)">
+                <constraints notNullConstraintName="notnull_key_5" nullable="true" unique="false" uniqueConstraintName="unique_index_4"/>
+            </column>
+        </createTable>
+        <createIndex indexName="index_1" tableName="tbl_user">
+            <column name="name"/>
+        </createIndex>
+
+        <createTable tableName="tbl_group">
+            <column autoIncrement="true" name="group_id" type="BIGINT">
+                <constraints notNullConstraintName="notnull_key_6" nullable="false" primaryKey="true" primaryKeyName="primary_key_2"/>
+            </column>
+            <column name="enabled" type="TINYINT(1)">
+                <constraints notNullConstraintName="notnull_key_7" nullable="false" unique="false" uniqueConstraintName="unique_index_5"/>
+            </column>
+            <column name="name" type="VARCHAR(100)">
+                <constraints notNullConstraintName="notnull_key_8" nullable="false" unique="true" uniqueConstraintName="unique_index_6"/>
+            </column>
+            <column name="system_defined" type="TINYINT(1)">
+                <constraints notNullConstraintName="notnull_key_9" nullable="false" unique="false" uniqueConstraintName="unique_index_7"/>
+            </column>
+            <column name="description" type="VARCHAR(255)">
+                <constraints notNullConstraintName="notnull_key_10" nullable="true" unique="false" uniqueConstraintName="unique_index_8"/>
+            </column>
+        </createTable>
+
+        <createTable tableName="tbl_role">
+            <column autoIncrement="true" name="role_id" type="BIGINT">
+                <constraints notNullConstraintName="notnull_key_11" nullable="false" primaryKey="true" primaryKeyName="primary_key_3"/>
+            </column>
+            <column name="enabled" type="TINYINT(1)">
+                <constraints notNullConstraintName="notnull_key_12" nullable="false" unique="false" uniqueConstraintName="unique_index_9"/>
+            </column>
+            <column name="name" type="VARCHAR(100)">
+                <constraints notNullConstraintName="notnull_key_13" nullable="false" unique="true" uniqueConstraintName="unique_index_10"/>
+            </column>
+            <column name="description" type="VARCHAR(255)">
+                <constraints notNullConstraintName="notnull_key_14" nullable="true" unique="false" uniqueConstraintName="unique_index_11"/>
+            </column>
+        </createTable>
+
+        <createTable tableName="tbl_group_role">
+            <column autoIncrement="true" name="group_role_id" type="BIGINT">
+                <constraints notNullConstraintName="notnull_key_15" nullable="false" primaryKey="true" primaryKeyName="primary_key_4"/>
+            </column>
+            <column name="group_id" type="BIGINT"/>
+            <column name="role_id" type="BIGINT"/>
+        </createTable>
+        <addUniqueConstraint columnNames="group_id,role_id" constraintName="unique_index_12" tableName="tbl_group_role"/>
+
+        <createTable tableName="tbl_user_group">
+            <column autoIncrement="true" name="user_group_id" type="BIGINT">
+                <constraints notNullConstraintName="notnull_key_16" nullable="false" primaryKey="true" primaryKeyName="primary_key_5"/>
+            </column>
+            <column name="group_id" type="BIGINT"/>
+            <column name="user_id" type="BIGINT"/>
+        </createTable>
+        <addUniqueConstraint columnNames="group_id,user_id" constraintName="unique_index_13" tableName="tbl_user_group"/>
+
+        <createTable tableName="tbl_user_role">
+            <column autoIncrement="true" name="user_role_id" type="BIGINT">
+                <constraints notNullConstraintName="notnull_key_17" nullable="false" primaryKey="true" primaryKeyName="primary_key_6"/>
+            </column>
+            <column name="role_id" type="BIGINT"/>
+            <column name="user_id" type="BIGINT"/>
+        </createTable>
+        <addUniqueConstraint columnNames="role_id,user_id" constraintName="unique_index_14" tableName="tbl_user_role"/>
+
+    </changeSet>
+</databaseChangeLog>

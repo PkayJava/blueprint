@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+</head>
+<body>
+<wicket:extend>
+    <section class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="card-title">Text Area</h3>
+                        </div>
+                        <form wicket:id="form">
+                            <div class="card-body">
+                                <div wicket:id="row1">
+                                    <div wicket:id="sample1Column">
+                                        <wicket:container wicket:id="sample1Container">
+                                            <div class="form-group">
+                                                <label wicket:for="sample1Field">Javascript (CTRL + Space = Auto Completion)</label>
+                                                <textarea wicket:id="sample1Field" class="form-control"></textarea>
+                                                <span wicket:id="sample1Feedback"/>
+                                            </div>
+                                        </wicket:container>
+                                    </div>
+                                    <div wicket:id="sample2Column">
+                                        <wicket:container wicket:id="sample2Container">
+                                            <div class="form-group">
+                                                <label wicket:for="sample2Field">SQL</label>
+                                                <textarea wicket:id="sample2Field" class="form-control"></textarea>
+                                                <span wicket:id="sample2Feedback"/>
+                                            </div>
+                                        </wicket:container>
+                                    </div>
+                                    <div wicket:id="lastColumn"/>
+                                </div>
+                                <div wicket:id="row2">
+                                    <div wicket:id="sample4Column">
+                                        <wicket:container wicket:id="sample4Container">
+                                            <div class="form-group">
+                                                <label wicket:for="sample4Field">Html Text Editor (CTRL + Space = Auto Completion)</label>
+                                                <textarea wicket:id="sample4Field" class="form-control"></textarea>
+                                                <span wicket:id="sample4Feedback"/>
+                                            </div>
+                                        </wicket:container>
+                                    </div>
+                                    <div wicket:id="sample5Column">
+                                        <wicket:container wicket:id="sample5Container">
+                                            <div class="form-group">
+                                                <label wicket:for="sample5Field">Rich Text Editor</label>
+                                                <textarea wicket:id="sample5Field" class="form-control"/>
+                                                <span wicket:id="sample5Feedback"/>
+                                            </div>
+                                        </wicket:container>
+                                    </div>
+                                    <div wicket:id="lastColumn"/>
+                                </div>
+                            </div>
+                            <!-- /.card-body -->
+
+                            <div class="card-footer">
+                                <button type="submit" class="btn btn-primary">Submit</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</wicket:extend>
+</body>
+
+</html>
