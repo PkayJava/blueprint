@@ -10,6 +10,7 @@ import com.angkorteam.webui.frmk.wicket.markup.html.form.*;
 import com.angkorteam.webui.frmk.wicket.markup.html.form.select2.*;
 import org.apache.wicket.MarkupContainer;
 import org.apache.wicket.markup.html.form.Form;
+import org.apache.wicket.markup.html.form.upload.FileUpload;
 import org.apache.wicket.model.Model;
 import org.apache.wicket.model.PropertyModel;
 
@@ -80,6 +81,13 @@ public class FormPage extends MasterPage {
     protected UIContainer sample10Container;
     protected MonthYearTextField sample10Field;
     protected String sample10Value;
+
+    protected UIRow row4;
+
+    protected UIColumn sample11Column;
+    protected UIContainer sample11Container;
+    protected FileUploadField sample11Field;
+    protected List<FileUpload> sample11Value;
 
     @Override
     protected void onInitData() {
@@ -185,6 +193,16 @@ public class FormPage extends MasterPage {
 
         this.row3.newUIColumn("lastColumn");
 
+        this.row4 = UIRow.newUIRow("row4", this.form);
+
+        this.sample11Column = this.row4.newUIColumn("sample11Column", Size.Four_4);
+        this.sample11Container = this.sample11Column.newUIContainer("sample11Container");
+        this.sample11Field = new FileUploadField("sample11Field", new PropertyModel<>(this, "sample11Value"));
+        this.sample11Field.setLabel(Model.of("File"));
+        this.sample11Container.add(this.sample11Field);
+        this.sample11Container.newFeedback("sample11Feedback", this.sample11Field);
+
+        this.row4.newUIColumn("lastColumn");
     }
 
 }
