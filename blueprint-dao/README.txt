@@ -1,0 +1,1 @@
+:/>mvn clean install -DskipTests -Ddb.name={db} -Ddb.url={jdbc:mysql://localhost/db?useSSL=true} -Ddb.user={uid} -Ddb.password={pwd} -Ddb.driver=com.mysql.cj.jdbc.Driver -Pdb-ddl
