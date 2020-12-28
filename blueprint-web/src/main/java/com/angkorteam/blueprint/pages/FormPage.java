@@ -8,13 +8,17 @@ import com.angkorteam.webui.frmk.wicket.layout.UIContainer;
 import com.angkorteam.webui.frmk.wicket.layout.UIRow;
 import com.angkorteam.webui.frmk.wicket.markup.html.form.*;
 import com.angkorteam.webui.frmk.wicket.markup.html.form.select2.*;
+import org.apache.commons.io.IOUtils;
 import org.apache.wicket.MarkupContainer;
 import org.apache.wicket.markup.html.form.Form;
 import org.apache.wicket.markup.html.form.upload.FileUpload;
 import org.apache.wicket.model.Model;
 import org.apache.wicket.model.PropertyModel;
 
-import java.util.Arrays;
+import java.io.IOException;
+import java.io.InputStream;
+import java.nio.charset.StandardCharsets;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -92,18 +96,22 @@ public class FormPage extends MasterPage {
     @Override
     protected void onInitData() {
         super.onInitData();
-        List<Option> options = Arrays.asList(
-                new Option("Monday", "Monday")
-                , new Option("Tuesday", "Tuesday")
-                , new Option("Wednesday", "Wednesday")
-                , new Option("Thursday", "Thursday")
-                , new Option("Friday", "Friday")
-                , new Option("Saturday", "Saturday")
-                , new Option("Sunday", "Sunday")
-        );
+        List<Option> options = null;
+        List<String> country = null;
+        try (InputStream stream = FormPage.class.getResourceAsStream("com/angkorteam/blueprint/country.txt")) {
+            country = IOUtils.readLines(stream, StandardCharsets.UTF_8);
+            options = new ArrayList<>(country.size());
+            for (String c : country) {
+                options.add(new Option(c, c));
+            }
+        } catch (IOException e) {
+            options = new ArrayList<>();
+            country = new ArrayList<>();
+            e.printStackTrace();
+        }
         this.sample1Provider = new MemorySingleChoiceProvider(options);
         this.sample2Provider = new MemoryMultipleChoiceProvider(options);
-        this.sample3Provider = new MemorySmartTextProvider(Arrays.asList("Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"));
+        this.sample3Provider = new MemorySmartTextProvider(country);
     }
 
     @Override
