@@ -8,15 +8,17 @@ import com.angkorteam.webui.frmk.wicket.layout.UIContainer;
 import com.angkorteam.webui.frmk.wicket.layout.UIRow;
 import com.angkorteam.webui.frmk.wicket.markup.html.form.*;
 import com.angkorteam.webui.frmk.wicket.markup.html.form.select2.*;
-import org.apache.commons.io.IOUtils;
+import org.apache.commons.io.FileUtils;
 import org.apache.wicket.MarkupContainer;
 import org.apache.wicket.markup.html.form.Form;
 import org.apache.wicket.markup.html.form.upload.FileUpload;
 import org.apache.wicket.model.Model;
 import org.apache.wicket.model.PropertyModel;
 
+import javax.servlet.ServletContext;
+import javax.servlet.http.HttpServletRequest;
+import java.io.File;
 import java.io.IOException;
-import java.io.InputStream;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.Date;
@@ -98,8 +100,11 @@ public class FormPage extends MasterPage {
         super.onInitData();
         List<Option> options = null;
         List<String> country = null;
-        try (InputStream stream = FormPage.class.getResourceAsStream("com/angkorteam/blueprint/country.txt")) {
-            country = IOUtils.readLines(stream, StandardCharsets.UTF_8);
+        HttpServletRequest request = (HttpServletRequest) getRequest().getContainerRequest();
+        ServletContext servletContext = request.getServletContext();
+        File countryFile = new File(servletContext.getRealPath("WEB-INF/country.txt"));
+        try {
+            country = FileUtils.readLines(countryFile, StandardCharsets.UTF_8);
             options = new ArrayList<>(country.size());
             for (String c : country) {
                 options.add(new Option(c, c));
