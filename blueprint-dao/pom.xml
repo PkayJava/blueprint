@@ -113,9 +113,7 @@
     </profiles>
 
     <build>
-
         <plugins>
-
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
@@ -128,7 +126,6 @@
                     <showDeprecation>true</showDeprecation>
                 </configuration>
             </plugin>
-
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-eclipse-plugin</artifactId>
@@ -144,9 +141,7 @@
                     </additionalConfig>
                 </configuration>
             </plugin>
-
         </plugins>
-
     </build>
 
 </project>
