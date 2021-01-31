@@ -8,6 +8,7 @@ import com.angkorteam.webui.frmk.wicket.layout.UIContainer;
 import com.angkorteam.webui.frmk.wicket.layout.UIRow;
 import com.angkorteam.webui.frmk.wicket.markup.html.form.*;
 import com.angkorteam.webui.frmk.wicket.markup.html.form.select2.*;
+import com.angkorteam.webui.frmk.wicket.markup.html.panel.ContainerFeedbackBehavior;
 import org.apache.commons.io.FileUtils;
 import org.apache.wicket.MarkupContainer;
 import org.apache.wicket.markup.html.form.Form;
@@ -130,6 +131,8 @@ public class FormPage extends MasterPage {
         this.sample1Container = this.sample1Column.newUIContainer("sample1Container");
         this.sample1Field = new Select2SingleChoice("sample1Field", new PropertyModel<>(this, "sample1Value"), this.sample1Provider, 2);
         this.sample1Field.setLabel(Model.of("Dropdown"));
+        this.sample1Field.setRequired(true);
+        this.sample1Field.add(new ContainerFeedbackBehavior());
         this.sample1Container.add(this.sample1Field);
         this.sample1Container.newFeedback("sample1Feedback", this.sample1Field);
 
@@ -137,6 +140,8 @@ public class FormPage extends MasterPage {
         this.sample2Container = this.sample2Column.newUIContainer("sample2Container");
         this.sample2Field = new Select2MultipleChoice("sample2Field", new PropertyModel<>(this, "sample2Value"), this.sample2Provider, 2);
         this.sample2Field.setLabel(Model.of("Tag"));
+        this.sample2Field.setRequired(true);
+        this.sample2Field.add(new ContainerFeedbackBehavior());
         this.sample2Container.add(this.sample2Field);
         this.sample2Container.newFeedback("sample2Feedback", this.sample2Field);
 
@@ -144,6 +149,8 @@ public class FormPage extends MasterPage {
         this.sample3Container = this.sample3Column.newUIContainer("sample3Container");
         this.sample3Field = new SmartTextField("sample3Field", new PropertyModel<>(this, "sample3Value"), this.sample3Provider, 2);
         this.sample3Field.setLabel(Model.of("Smart Text"));
+        this.sample3Field.setRequired(true);
+        this.sample3Field.add(new ContainerFeedbackBehavior());
         this.sample3Container.add(this.sample3Field);
         this.sample3Container.newFeedback("sample3Feedback", this.sample3Field);
 
@@ -155,6 +162,8 @@ public class FormPage extends MasterPage {
         this.sample4Container = this.sample4Column.newUIContainer("sample4Container");
         this.sample4Field = new DateTextField("sample4Field", new PropertyModel<>(this, "sample4Value"));
         this.sample4Field.setLabel(Model.of("Date"));
+        this.sample4Field.setRequired(true);
+        this.sample4Field.add(new ContainerFeedbackBehavior());
         this.sample4Container.add(this.sample4Field);
         this.sample4Container.newFeedback("sample4Feedback", this.sample4Field);
 
@@ -162,6 +171,8 @@ public class FormPage extends MasterPage {
         this.sample5Container = this.sample5Column.newUIContainer("sample5Container");
         this.sample5Field = new ColorTextField("sample5Field", new PropertyModel<>(this, "sample5Value"));
         this.sample5Field.setLabel(Model.of("Color"));
+        this.sample5Field.setRequired(true);
+        this.sample5Field.add(new ContainerFeedbackBehavior());
         this.sample5Container.add(this.sample5Field);
         this.sample5Container.newFeedback("sample5Feedback", this.sample5Field);
 
@@ -169,6 +180,8 @@ public class FormPage extends MasterPage {
         this.sample6Container = this.sample6Column.newUIContainer("sample6Container");
         this.sample6Field = new DateTimeTextField("sample6Field", new PropertyModel<>(this, "sample6Value"));
         this.sample6Field.setLabel(Model.of("Datetime"));
+        this.sample6Field.setRequired(true);
+        this.sample6Field.add(new ContainerFeedbackBehavior());
         this.sample6Container.add(this.sample6Field);
         this.sample6Container.newFeedback("sample6Feedback", this.sample6Field);
 
@@ -180,6 +193,8 @@ public class FormPage extends MasterPage {
         this.sample7Container = this.sample7Column.newUIContainer("sample7Container");
         this.sample7Field = new TimeTextField("sample7Field", new PropertyModel<>(this, "sample7Value"));
         this.sample7Field.setLabel(Model.of("Time"));
+        this.sample7Field.setRequired(true);
+        this.sample7Field.add(new ContainerFeedbackBehavior());
         this.sample7Container.add(this.sample7Field);
         this.sample7Container.newFeedback("sample7Feedback", this.sample7Field);
 
@@ -187,6 +202,8 @@ public class FormPage extends MasterPage {
         this.sample8Container = this.sample8Column.newUIContainer("sample8Container");
         this.sample8Field = new DayMonthTextField("sample8Field", new PropertyModel<>(this, "sample8Value"));
         this.sample8Field.setLabel(Model.of("Day / Month"));
+        this.sample8Field.setRequired(true);
+        this.sample8Field.add(new ContainerFeedbackBehavior());
         this.sample8Container.add(this.sample8Field);
         this.sample8Container.newFeedback("sample8Feedback", this.sample8Field);
 
@@ -194,6 +211,8 @@ public class FormPage extends MasterPage {
         this.sample9Container = this.sample9Column.newUIContainer("sample9Container");
         this.sample9Field = new IPTextField("sample9Field", new PropertyModel<>(this, "sample9Value"));
         this.sample9Field.setLabel(Model.of("IP"));
+        this.sample9Field.setRequired(true);
+        this.sample9Field.add(new ContainerFeedbackBehavior());
         this.sample9Container.add(this.sample9Field);
         this.sample9Container.newFeedback("sample9Feedback", this.sample9Field);
 
@@ -201,6 +220,8 @@ public class FormPage extends MasterPage {
         this.sample10Container = this.sample10Column.newUIContainer("sample10Container");
         this.sample10Field = new MonthYearTextField("sample10Field", new PropertyModel<>(this, "sample10Value"));
         this.sample10Field.setLabel(Model.of("Month / Year"));
+        this.sample10Field.setRequired(true);
+        this.sample10Field.add(new ContainerFeedbackBehavior());
         this.sample10Container.add(this.sample10Field);
         this.sample10Container.newFeedback("sample10Feedback", this.sample10Field);
 
@@ -212,6 +233,8 @@ public class FormPage extends MasterPage {
         this.sample11Container = this.sample11Column.newUIContainer("sample11Container");
         this.sample11Field = new FileUploadField("sample11Field", new PropertyModel<>(this, "sample11Value"));
         this.sample11Field.setLabel(Model.of("File"));
+        this.sample11Field.setRequired(true);
+        this.sample11Field.add(new ContainerFeedbackBehavior());
         this.sample11Container.add(this.sample11Field);
         this.sample11Container.newFeedback("sample11Feedback", this.sample11Field);
 

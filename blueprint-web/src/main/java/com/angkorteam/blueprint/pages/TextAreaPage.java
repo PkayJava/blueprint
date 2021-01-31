@@ -10,6 +10,7 @@ import com.angkorteam.webui.frmk.wicket.markup.html.form.HtmlTextArea;
 import com.angkorteam.webui.frmk.wicket.markup.html.form.JavascriptTextArea;
 import com.angkorteam.webui.frmk.wicket.markup.html.form.RichTextField;
 import com.angkorteam.webui.frmk.wicket.markup.html.form.SQLTextArea;
+import com.angkorteam.webui.frmk.wicket.markup.html.panel.ContainerFeedbackBehavior;
 import org.apache.wicket.MarkupContainer;
 import org.apache.wicket.markup.html.form.Form;
 import org.apache.wicket.model.Model;
@@ -60,6 +61,8 @@ public class TextAreaPage extends MasterPage {
         this.sample1Container = this.sample1Column.newUIContainer("sample1Container");
         this.sample1Field = new JavascriptTextArea("sample1Field", new PropertyModel<>(this, "sample1Value"));
         this.sample1Field.setLabel(Model.of("Javascript"));
+        this.sample1Field.setRequired(true);
+        this.sample1Field.add(new ContainerFeedbackBehavior());
         this.sample1Container.add(this.sample1Field);
         this.sample1Container.newFeedback("sample1Feedback", this.sample1Field);
 
@@ -67,6 +70,8 @@ public class TextAreaPage extends MasterPage {
         this.sample2Container = this.sample2Column.newUIContainer("sample2Container");
         this.sample2Field = new SQLTextArea("sample2Field", new PropertyModel<>(this, "sample2Value"));
         this.sample2Field.setLabel(Model.of("SQL"));
+        this.sample2Field.setRequired(true);
+        this.sample2Field.add(new ContainerFeedbackBehavior());
         this.sample2Container.add(this.sample2Field);
         this.sample2Container.newFeedback("sample2Feedback", this.sample2Field);
 
@@ -78,6 +83,8 @@ public class TextAreaPage extends MasterPage {
         this.sample4Container = this.sample4Column.newUIContainer("sample4Container");
         this.sample4Field = new HtmlTextArea("sample4Field", new PropertyModel<>(this, "sample4Value"));
         this.sample4Field.setLabel(Model.of("Html Text Editor"));
+        this.sample4Field.setRequired(true);
+        this.sample4Field.add(new ContainerFeedbackBehavior());
         this.sample4Container.add(this.sample4Field);
         this.sample4Container.newFeedback("sample4Feedback", this.sample4Field);
 
@@ -85,6 +92,8 @@ public class TextAreaPage extends MasterPage {
         this.sample5Container = this.sample5Column.newUIContainer("sample5Container");
         this.sample5Field = new RichTextField("sample5Field", new PropertyModel<>(this, "sample5Value"));
         this.sample5Field.setLabel(Model.of("Rich Text Editor"));
+        this.sample5Field.setRequired(true);
+        this.sample5Field.add(new ContainerFeedbackBehavior());
         this.sample5Container.add(this.sample5Field);
         this.sample5Container.newFeedback("sample5Feedback", this.sample5Field);
 
