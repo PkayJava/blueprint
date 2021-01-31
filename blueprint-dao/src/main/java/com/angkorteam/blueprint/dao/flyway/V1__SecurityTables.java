@@ -1,6 +1,5 @@
 package com.angkorteam.blueprint.dao.flyway;
 
-import com.angkorteam.blueprint.dao.Checksum;
 import com.angkorteam.jdbc.query.InsertQuery;
 import com.angkorteam.metamodel.LiquibaseJavaMigration;
 import org.apache.metamodel.jdbc.JdbcDataContext;
@@ -9,12 +8,14 @@ import org.flywaydb.core.api.migration.Context;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 
 import javax.sql.DataSource;
+import java.util.Arrays;
+import java.util.List;
 
 public class V1__SecurityTables extends LiquibaseJavaMigration {
 
     @Override
-    public Integer getChecksum() {
-        return Checksum.V1__SecurityTables + getInternalChecksum("V1__security_tables.xml");
+    protected List<String> getXmlChecksum() {
+        return Arrays.asList("V1__security_tables.xml");
     }
 
     @Override
