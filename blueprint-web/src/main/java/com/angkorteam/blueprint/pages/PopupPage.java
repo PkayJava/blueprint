@@ -2,7 +2,7 @@ package com.angkorteam.blueprint.pages;
 
 import com.angkorteam.blueprint.MasterPage;
 import com.angkorteam.webui.frmk.common.Bookmark;
-import com.angkorteam.webui.frmk.wicket.extensions.ajax.markup.html.modal.ModalDialog;
+import com.angkorteam.webui.frmk.wicket.layout.ModalDialog;
 import org.apache.wicket.MarkupContainer;
 import org.apache.wicket.ajax.AjaxRequestTarget;
 import org.apache.wicket.ajax.markup.html.form.AjaxButton;
@@ -15,8 +15,6 @@ public class PopupPage extends MasterPage {
     protected Form<Void> form;
 
     private AjaxButton buttonShow;
-
-    private ModalDialog modalDialog;
 
     @Override
     public void renderHead(IHeaderResponse response) {
@@ -35,10 +33,6 @@ public class PopupPage extends MasterPage {
             }
         };
         this.form.add(this.buttonShow);
-
-        this.modalDialog = new ModalDialog("modal");
-        this.modalDialog.trapFocus();
-        this.modalDialog.closeOnEscape();
 
         body.add(this.modalDialog);
 

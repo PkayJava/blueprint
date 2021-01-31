@@ -7,14 +7,16 @@
 </head>
 <body>
 <wicket:panel xmlns:wicket="http://wicket.apache.org">
-    <div class="modal-header">
-        <h4 class="modal-title">Default Modal</h4>
-    </div>
-    <div class="modal-body">
-        <p>One fine body…</p>
-    </div>
-    <div class="modal-footer">
-        <button type="button" class="btn btn-primary">Okay</button>
+    <div class="modal-content">
+        <div class="modal-header">
+            <h4 class="modal-title">Default Modal</h4>
+        </div>
+        <div class="modal-body">
+            <p>One fine body…</p>
+        </div>
+        <div class="modal-footer">
+            <a wicket:id="okayButton" class="btn btn-primary">Okay</a>
+        </div>
     </div>
 </wicket:panel>
 </body>
