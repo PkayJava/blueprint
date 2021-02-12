@@ -2,6 +2,7 @@ package com.angkorteam.blueprint.pages;
 
 import com.angkorteam.webui.frmk.wicket.extensions.markup.html.tabs.ContentPanel;
 import com.angkorteam.webui.frmk.wicket.extensions.markup.html.tabs.Tab;
+import org.apache.wicket.MarkupContainer;
 import org.apache.wicket.extensions.markup.html.tabs.TabbedPanel;
 
 import java.util.Map;
@@ -13,11 +14,11 @@ public class TabPageTab2 extends ContentPanel {
     }
 
     @Override
-    protected void initData() {
+    protected void onInitData() {
     }
 
     @Override
-    protected void onInitHtml() {
+    protected void onInitHtml(MarkupContainer body) {
     }
 
 }
