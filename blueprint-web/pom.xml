@@ -7,7 +7,7 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.4.2</version>
+        <version>2.4.3</version>
         <relativePath/>
     </parent>
 
@@ -37,11 +37,11 @@
         <bouncycastle.version>1.68</bouncycastle.version>
         <spring-boot.version>2.4.2</spring-boot.version>
         <guava.version>30.1-jre</guava.version>
-        <spring.version>5.3.3</spring.version>
+        <spring.version>5.3.4</spring.version>
         <reflections.version>0.9.12</reflections.version>
-        <metamodel.version>5.3.2</metamodel.version>
-        <flyway.version>7.5.3</flyway.version>
-        <liquibase.version>4.2.2</liquibase.version>
+        <metamodel.version>5.3.3</metamodel.version>
+        <flyway.version>7.5.4</flyway.version>
+        <liquibase.version>4.3.1</liquibase.version>
         <commons-text.version>1.9</commons-text.version>
         <poi.version>5.0.0</poi.version>
         <commons-dbcp2.version>2.8.0</commons-dbcp2.version>
