@@ -44,7 +44,7 @@
         <joda-time.version>2.10.10</joda-time.version>
         <mail.version>1.4.7</mail.version>
         <mysql.version>8.0.22</mysql.version>
-        <spring-cloud.version>2020.0.0</spring-cloud.version>
+        <spring-cloud.version>2020.0.1</spring-cloud.version>
     </properties>
 
     <modules>
